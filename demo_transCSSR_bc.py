@@ -139,7 +139,4 @@ print_morph_by_states(morph_by_state, axs, ays, e_symbols)
 
 filtered_states, filtered_probs, stringY_pred = filter_and_predict(stringX, stringY, epsilon, invepsilon, morph_by_state, axs, ays, e_symbols, L_max)
 
-# print 'Xt Yt \hat\{Y\}t St P(Yt = 1 | Xt, St)'
-
-# for t_ind in range(int(numpy.min([100, len(stringX)]))):
-# 	print stringX[t_ind], stringY[t_ind], stringY_pred[t_ind], filtered_states[t_ind], filtered_probs[t_ind]
+preds_all, possible_states_all = filter_and_pred_probs(stringX, stringY, machine_fname = 'transCSSR_results/+{}.dot'.format(Xt_name), transducer_fname = 'transCSSR_results/{}+{}.dot'.format(Xt_name, Yt_name), axs = axs, ays = ays, inf_alg = 'transCSSR')
